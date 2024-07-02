@@ -1,0 +1,9 @@
+.graph {
+    position: relative;
+    margin: 2rem auto;
+    width: 100%; /* Use percentage for responsive width */
+    max-width: 1050px; /* Limit maximum width for larger screens */
+    border: 1px solid #ccc; 
+    border-radius: 8px;
+    padding: 1rem;
+}

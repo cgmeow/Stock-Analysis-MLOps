@@ -1,0 +1,52 @@
+-- Command list for installation.
+
+sudo su
+sudo yum update
+yum install python3-pip
+
+python3 -m pip install selenium requests bs4 pandas boto3
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+sudo yum install -y libX11 libXcomposite libXcursor libXdamage libXext libXi libXtst libXrandr libXScrnSaver libXcursor libXcomposite libXfixes libXss libXrandr libasound2 libatk-bridge2.0-0 libatk1.0-0 libc6 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libnss3 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+sudo yum localinstall google-chrome-stable_current_x86_64.rpm
+
+google-chrome --version
+
+sudo ln -s /opt/google/chrome/google-chrome /usr/local/bin/google-chrome
+
+
+-- Get Google Chrome
+Go to https://googlechromelabs.github.io/chrome-for-testing/
+
+
+unzip chromedriver-linux64.zip
+sudo mv chromedriver /usr/local/bin/
+cd ..
+
+-- Download Code
+aws s3 cp s3://code-bucket-mle-cs611/test-selenium-EC2.py ./test-selenium-EC2.py
+python3 test-selenium-EC2.py
+
+aws s3 cp s3://code-bucket-mle-cs611/Yahoo_Finance_Data_Webscrape.py ./Yahoo_Finance_Data_Webscrape.py
+python3 Yahoo_Finance_Data_Webscrape.py
+
+aws s3 cp s3://code-bucket-mle-cs611/Yahoo_Finance_News_Webscrape_EC2.py ./Yahoo_Finance_News_Webscrape_EC2.py
+python3 Yahoo_Finance_News_Webscrape_EC2.py
+
+
+aws s3 cp s3://train-bucket-write-123456/Yahoo_Finance_News_Webscrape_EC2.py ./Yahoo_Finance_News_Webscrape_EC2.py
+python3 Yahoo_Finance_News_Webscrape_EC2.py META
+
+ssh -i newPair.pem ec2-user@ec2-34-224-169-36.compute-1.amazonaws.com
+
+which python3
+/usr/bin/python3
+
+readlink -f Yahoo_Finance_News_Webscrape_EC2.py
+/home/ec2-user/Yahoo_Finance_News_Webscrape_EC2.py
+
+readlink -f Yahoo_Finance_Data_Webscrape.py
+/home/ec2-user/Yahoo_Finance_Data_Webscrape.py

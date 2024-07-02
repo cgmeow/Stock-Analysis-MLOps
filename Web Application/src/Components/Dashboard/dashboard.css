@@ -1,0 +1,30 @@
+.dashboard-container {
+    background-color: black;
+    min-height: 100vh; /* Ensure the dashboard fills the viewport height */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dashboard-content {
+    flex: 1; /* Allow content to stretch vertically */
+    color: white;
+    padding: 2rem;
+  }
+  
+  .dashboard-header {
+    margin-top: 1rem;
+    margin-left: 5rem;
+  }
+  
+  .dashboard-graph {
+    width: 100%;
+    margin-top: 2rem;
+  }
+  
+  .dashboard-news {
+    width: 96%;
+    background-color: black;
+    margin-left: 3rem;
+    padding-right: 3rem;
+  }
+  

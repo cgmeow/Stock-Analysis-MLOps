@@ -1,0 +1,29 @@
+.custom-card {
+    width: 120%; /* Ensure the card takes full width of the column */
+    max-width: 300px; /* Optional: Set a max-width for the card */
+    background-color: black; /* Background color */
+    color: white; /* Text color */
+    border: 1px solid #ccc; /* Optional: Add border for card */
+    border-radius: 8px; /* Optional: Add border radius for card */
+}
+
+.custom-card .card-body {
+    padding: 0.5rem; /* Adjust padding inside the card body */
+}
+
+.custom-card .card-text {
+    font-size: 1.5rem; /* Adjust font size of the card text */
+    font-weight: bold; /* Make text bold */
+}
+
+.container .row {
+    display: flex;
+    /* Evenly distribute the cards */
+    flex-wrap: wrap; /* Ensure cards wrap to the next line on smaller screens */
+}
+
+@media (max-width: 768px) {
+    .custom-card {
+        max-width: 100%; /* Allow cards to take full width on smaller screens */
+    }
+}
